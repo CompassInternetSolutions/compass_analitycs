@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Compass Google Analytics Plugin
-Plugin URI:
+Plugin URI: https://github.com/CompassInternetSolutions/compass_analitycs
 Description: Adds a Google analytics trascking code to your theme, by hooking.
 Author: Johhn coinso / Ido Coinso
 Author URI: http://coinso.com
