@@ -10,7 +10,7 @@
 // Create the Menu link
 
 function cga_options_menu_link(){
-    add_options_page('Google Analytics', 'google analytics', 'manage_options', 'cga-options', 'cga_options_content');
+    add_options_page('Google Analytics', 'Google Analytics', 'manage_options', 'cga-options', 'cga_options_content');
 
 }
 
@@ -53,7 +53,15 @@ function cga_options_content(){
                         </p>
                     </td>
                 </tr>
-
+                <tr>
+                    <th scope="row">
+                        <label for="cga_settings[enable]">
+                            <?php _e('Load Script in Header', 'cga_domain') ;?>
+                        </label>
+                    </th>
+                    <td>
+                        <input type="checkbox" name="cga_settings[enable]" value="1" <?php checked( '1', $cga_options[ 'enable']) ;?> id="cga_settings[enable]"></td>
+                </tr>
 
 
                 </tbody>

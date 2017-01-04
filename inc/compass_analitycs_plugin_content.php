@@ -23,4 +23,10 @@ function compass_google_analytics() {
 
     </script>
 <?php }
-add_action( 'wp_footer', 'compass_google_analytics', 10 );
+
+if ($cga_options[ 'enable'] == 1){
+    add_action( 'wp_head', 'compass_google_analytics', 10 );
+}else{
+
+    add_action( 'wp_footer', 'compass_google_analytics', 10 );
+}
