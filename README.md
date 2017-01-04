@@ -6,7 +6,7 @@ Set up
 
 1. Download plugin from 
 
-2. Install plugin to directory
+2. Install plugin to directory (upload zipped file compass_analitycs-master)
 
 3. Go to setting page (Settings -> google analytics)
 
