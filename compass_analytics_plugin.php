@@ -17,7 +17,7 @@ if (!defined('ABSPATH')){
 //Global options var
 
 $cga_options = get_option('cga_settings');
-
+$rhl_options = get_option('rhl_settings');
 
 
 //Load Content
@@ -26,5 +26,18 @@ require_once (plugin_dir_path(__FILE__) . '/inc/compass_analitycs_plugin_content
 //Load Settings only if on the admin side
 if (is_admin()){
     require_once (plugin_dir_path(__FILE__) . '/inc/compass_analitycs_plugin_settings.php');
+    require_once (plugin_dir_path(__FILE__) . '/inc/compass_analitycs_plugin_rhl_settings.php');
+
 }
 
+//register the settings
+
+function cga_register_settings(){
+    register_setting('cga_settings_gruop', 'cga_settings');
+    register_setting('rhl_settings_gruop', 'rhl_settings');
+
+}
+if ( is_admin() ){
+
+    add_action('admin_init', 'cga_register_settings');
+}

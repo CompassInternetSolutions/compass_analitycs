@@ -10,13 +10,22 @@
 // Create the Menu link
 
 function cga_options_menu_link(){
-    add_options_page('Google Analytics', 'Google Analytics', 'manage_options', 'cga-options', 'cga_options_content');
+    //add_options_page('Google Tools', 'Google Tools', 'manage_options', 'cga-options', 'cga_options_content');
+    add_menu_page( 'Google Tools', 'Google Tools', 'manage_options', 'cga-options', 'cga_options_content' );
 
+
+
+    //add submenu page
+    add_submenu_page( 'cga-options', 'Remove Header Links', 'Remove Header Links', 'manage_options', 'rhl-options', 'remove_header_junk');
 }
 
 //Create Options page content
 function cga_options_content(){
 
+
+    if ( !current_user_can( 'manage_options' ) )  {
+        wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+    }
 // init global variable for options
 
     global $cga_options;
@@ -99,13 +108,5 @@ if ( is_admin() ){
 }
 
 
-//register the settings
 
-function cga_register_settings(){
-    register_setting('cga_settings_gruop', 'cga_settings');
 
-}
-if ( is_admin() ){
-
-    add_action('admin_init', 'cga_register_settings');
-}

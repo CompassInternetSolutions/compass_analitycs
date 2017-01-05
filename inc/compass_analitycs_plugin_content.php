@@ -42,3 +42,5 @@ if($cga_options['gwmt']){
 
     add_action('wp_head','compass_wmt_verification');
 }
+
+
