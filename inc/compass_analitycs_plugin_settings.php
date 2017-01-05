@@ -36,7 +36,7 @@ function cga_options_content(){
 
                 <th>
 
-                    <?php echo _e('Google Analytics Settings', 'cga_domain');?>
+                    <?php echo _e('Google Analytics Tools Settings', 'cga_domain');?>
                 </th>
 
                 <tr>
@@ -62,7 +62,22 @@ function cga_options_content(){
                     <td>
                         <input type="checkbox" name="cga_settings[enable]" value="1" <?php checked( '1', $cga_options[ 'enable']) ;?> id="cga_settings[enable]"></td>
                 </tr>
+                <tr>
+                    <th scope="row">
 
+                        <label for="cga_settings[gwmt]">
+                            <?php _e('Add Google WMT verification code', 'cga_domain') ;?>
+                        </label>
+                    </th>
+                    <td>
+                        <span>meta name="google-site-verification" content="
+                            <input type="text" name="cga_settings[gwmt]" value="<?php echo $cga_options['gwmt'] ;?>" id="cga_settings[gwmt]" class="regular-text" placeholder="Add code here"/>"
+                        </span>
+                        <p class="description">
+                            <?php _e('Add Google WMT verification code', 'cga_domain');?>
+                        </p>
+                    </td>
+                </tr>
 
                 </tbody>
 

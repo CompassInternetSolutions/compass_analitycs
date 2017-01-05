@@ -30,3 +30,15 @@ if ($cga_options[ 'enable'] == 1){
 
     add_action( 'wp_footer', 'compass_google_analytics', 10 );
 }
+
+function compass_wmt_verification(){
+    global $cga_options;
+    ?>
+    <meta name="google-site-verification" content="<?php echo $cga_options['gwmt'];?>">
+
+<?php }
+
+if($cga_options['gwmt']){
+
+    add_action('wp_head','compass_wmt_verification');
+}
