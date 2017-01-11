@@ -5,6 +5,7 @@
  * Date: 1/4/2017
  * Time: 9:52 AM
  */
+require_once( ABSPATH . "wp-includes/pluggable.php" );
 
 function compass_google_analytics() {
 
@@ -24,12 +25,36 @@ function compass_google_analytics() {
     </script>
 <?php }
 
-if ($cga_options[ 'enable'] == 1){
-    add_action( 'wp_head', 'compass_google_analytics', 10 );
-}else{
+//check if it is a logged in user in order not to send info
+if ( !function_exists('is_user_logged_in') ) :
 
-    add_action( 'wp_footer', 'compass_google_analytics', 10 );
+    /**
+     * Checks if the current visitor is a logged in user.
+     *
+     * @since 2.0.0
+     *
+     * @return bool True if user is logged in, false if not logged in.
+     */
+
+    function is_user_logged_in() {
+        $user = wp_get_current_user();
+
+        if ( empty( $user->ID ) )
+            return false;
+
+        return true;
+    }
+endif;
+if(! is_user_logged_in() ){
+
+    if ($cga_options[ 'enable'] == 1){
+        add_action( 'wp_head', 'compass_google_analytics', 10 );
+    }else{
+
+        add_action( 'wp_footer', 'compass_google_analytics', 10 );
+    }
 }
+
 
 function compass_wmt_verification(){
     global $cga_options;
