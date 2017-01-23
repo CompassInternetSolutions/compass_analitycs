@@ -4,7 +4,7 @@ This is an easy way to add google Analytics to your site.
 
 Set up
 
-1. Download plugin from 
+1. Download plugin from https://github.com/CompassInternetSolutions/compass_analitycs
 
 2. Install plugin to directory (upload zipped file compass_analitycs-master)
 
