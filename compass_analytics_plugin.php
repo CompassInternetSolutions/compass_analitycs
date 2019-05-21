@@ -14,6 +14,15 @@ if (!defined('ABSPATH')){
     exit;
 }
 
+
+//Setup
+require 'plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+    'https://github.com/CompassInternetSolutions/compass_analitycs',
+    __FILE__,
+    'coinso-cga'
+);
+$myUpdateChecker->setBranch('production');
 //Global options var
 
 $cga_options = get_option('cga_settings');
