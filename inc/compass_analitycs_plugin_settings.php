@@ -64,6 +64,20 @@ function cga_options_content(){
                 </tr>
                 <tr>
                     <th scope="row">
+
+                        <label for="cga_settings[ga_ua]">
+                            <?php _e('Add Google Analytics V-4 Gtag', 'cga_domain') ;?>
+                        </label>
+                    </th>
+                    <td>
+                        <input type="text" name="cga_settings[ga_gtag]" value="<?php echo $cga_options['ga_gtag'] ;?>" id="cga_settings[ga_gtag]" class="regular-text" placeholder="G-XXXXXXXX"/>
+                        <p class="description">
+                            <?php _e('Add Google Analytics gtag', 'cga_domain');?>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
                         <label for="cga_settings[enable]">
                             <?php _e('Load Script in Header', 'cga_domain') ;?>
                         </label>

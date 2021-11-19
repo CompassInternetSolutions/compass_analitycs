@@ -11,6 +11,7 @@ function compass_google_analytics() {
 
     global $cga_options;
 
+    if ( !empty($cga_options['ga_ua'])) {
     ?>
 
     <script>
@@ -23,7 +24,17 @@ function compass_google_analytics() {
         ga('send', 'pageview');
 
     </script>
-<?php }
+<?php } if ( !empty($cga_options['ga_gtag'])){ ?>
+        <script async src="https://www.googletagmanager.com/gtag/js?id="<?php echo $cga_options['ga_gtag'];?>></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '<?php echo $cga_options['ga_gtag'];?>');
+        </script>
+    <?php }
+}
 
 //check if it is a logged in user in order not to send info
 if ( !function_exists('is_user_logged_in') ) :
